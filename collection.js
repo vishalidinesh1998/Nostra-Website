@@ -1,4 +1,14 @@
+var menu=document.getElementById("menu")
+var sidenav=document.querySelector(".sidenav")
+var close=document.getElementById("close")
 
+menu.addEventListener("click",function(){
+    sidenav.style.left="0"
+
+})
+close.addEventListener("click",function(){
+    sidenav.style.left = "-50%"
+})
 
 
 
@@ -9,18 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
     var search = document.getElementById("Search");
     var productlist = productcontainer.querySelectorAll("div");
 
-    search.addEventListener("keyup", function (event) {
-        var entervalue = event.target.value.toUpperCase();
-        for (let count = 0; count < productlist.length; count++) {
-            var productname = productlist[count].querySelector("h1").textContent;
-
-            if (productname.toUpperCase().indexOf(entervalue) < 0) {
-                productlist[count].style.display = "none";
-            } else {
-                productlist[count].style.display = "block";
-            }
+ search.addEventListener("keyup", function (event) {
+    var entervalue = event.target.value.toUpperCase();
+    for (let count = 0; count < productlist.length; count++) {
+        var productname = productlist[count].textContent.toUpperCase(); // Full text check
+        
+        if (productname.indexOf(entervalue) < 0) {
+            productlist[count].style.display = "none";
+        } else {
+            productlist[count].style.display = "block";
         }
-    });
+    }
+});
+
 
     // Function to filter based on all checkboxes
     function applyFilters() {
@@ -39,11 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
             // Check if the product matches all selected filters
             let tagMatch = checkedTags.length === 0 || checkedTags.some(tag => title.includes(tag));
             let colorMatch = checkedColors.length === 0 || checkedColors.some(color => title.includes(color));
-            let arrivalMatch = checkedArrivals.length === 0 || checkedArrivals.some(arrival => title.includes(arrival));
+            let arrivalMatch = checkedArrivals.length === 0 || checkedArrivals.some(tag => title.includes(tag));
 
             // Show product if all filters match, otherwise hide it
             if (tagMatch && colorMatch && arrivalMatch) {
-                product.style.display = "block";
+                product.style.display = "Inline-block";
             } else {
                 product.style.display = "none";
             }

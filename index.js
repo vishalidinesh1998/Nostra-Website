@@ -11,49 +11,38 @@ close.addEventListener("click",function(){
 })
 
 
+
+
 const slideContainer = document.querySelector('.slide-image-container');
 const images = document.querySelectorAll('.slide-image-container img');
 const leftArrow = document.getElementById('arrow-left');
 const rightArrow = document.getElementById('arrow-right');
 
-let currentIndex = 0;
-
-function updateSlidePosition() {
-    const imageWidth = images[0].clientWidth;
-    slideContainer.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
-}
-
-function adjustContainerWidth() {
-    const imageWidth = images[0].clientWidth;
-    slideContainer.style.width = `${images.length * imageWidth}px`;
-}
+const totalimages = images.length;
+let index = 0;
 
 rightArrow.addEventListener('click', () => {
-    if (currentIndex < images.length - 1) {
-        currentIndex++;
-    } else {
-        currentIndex = 0; 
-    }
-    updateSlidePosition();
+    console.log("Right arrow is clicked");
+    index = (index + 1) % totalimages;
+    updateslide();
 });
 
 leftArrow.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-    } else {
-        currentIndex = images.length - 1; 
-    }
-    updateSlidePosition();
+    console.log("Left arrow is clicked");
+    index = (index - 1 + totalimages) % totalimages;
+    updateslide();
 });
 
-window.addEventListener('resize', () => {
-    adjustContainerWidth();
-    updateSlidePosition();
-});
+function updateslide() {
+    slideContainer.style.transform = `translateX(-${index * 100}vw)`;
+}
 
-// When page loads
-adjustContainerWidth();
-updateSlidePosition();
+
+
+
+
+
+
 
 
 

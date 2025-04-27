@@ -1,3 +1,15 @@
+var menu=document.getElementById("menu")
+var sidenav=document.querySelector(".sidenav")
+var close=document.getElementById("close")
+
+menu.addEventListener("click",function(){
+    sidenav.style.left="0"
+
+})
+close.addEventListener("click",function(){
+    sidenav.style.left = "-50%"
+})
+
 const name = document.getElementById("name");
 const email = document.getElementById("email");
 const message = document.getElementById("message");

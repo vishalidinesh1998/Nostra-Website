@@ -107,73 +107,61 @@ body {
 /* Slide */
 
 .slider {
-    display: flex;
-    width: 100%;
+    padding: 5 rem;
     position: relative;
     overflow: hidden;
-    border-radius: 5px;
-
-}
-
-.slider-container {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.slide-text {
-    position: absolute;
-    color: white;
-    text-align: center;
     width: 100%;
-    top: 20%;
-    z-index: 10;
-}
-
-#arrow-left,
-#arrow-right {
-    font-size: 10vw;
-}
-
-.slider button {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    color: rgb(29, 35, 44);
-
+    border-radius: 5px;
+    height: 80vh; /* You can adjust based on your design */
 }
 
 .slide-image-container {
     display: flex;
+    width: 300vw; /* because 3 images, each 100vw */
+    height: 100%;
     transition: transform 0.5s ease-in-out;
-   transition: 2s;
-   
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .slide-image-container img {
-    height: auto;
     width: 100vw;
+    height: 100%;
+    object-fit: cover; /* better for mobile images */
     flex-shrink: 0;
 }
 
+.slide-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
 
-
+.slide-left-button,
+.slide-right-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 8vw;
+    color: white;
+    cursor: pointer;
+}
 
 .slide-left-button {
-    position: absolute;
-    top: 35%;
-    left: 5%;
-    z-index: 1;
-    color: white;
+    left: 10px;
 }
 
 .slide-right-button {
-    position: absolute;
-    top: 35%;
-    right: 5%;
-    color: white;
+    right: 10px;
 }
+
+
 
 /* Brand */
 .brand_item img {
@@ -506,6 +494,7 @@ body {
     display: flex;
     align-items: center;
     width: 90%;
+    
 }
 
 
@@ -544,18 +533,20 @@ body {
     #menu {
         display: block;
     }
-
+    #mainbar__image{
+        height: 200px;
+    }
   
     .image-container img {
         display: grid;
         grid-template-columns: 2;
     }
 
+ 
     .limited-offers {
         flex-direction: row;
-        /* இங்கேயும் row */
         flex-wrap: wrap;
-        /* தேவையானால் wrap செய்யலாம் */
+      
     }
 
     .limited-offers-1 img {
@@ -577,8 +568,24 @@ body {
         padding: 10px;
     }
 
-
-
+    
+    .MostWanted-container i {
+        font-size: 10px;
+        position: absolute;
+        bottom: 30px;
+        right: 5px;
+    
+    }
+    .newarrival-2 img {
+        font-size: 10px;
+    }
+    .slider {
+        height: 50vh; /* Smaller height on tablets/mobiles */
+    }
+    .newarrival-container button {
+        padding: 5px 1px;
+        font-size: 10px;
+      }
 }
 
 html,
