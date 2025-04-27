@@ -20,5 +20,5 @@ Nostra is a fully responsive e-commerce website built using HTML, CSS, and JavaS
 
 ## Installation
 1. Clone the repository:
-bash
-   git clone https://github.com/yourusername/nostra-ecommerce.git
+bash(https://vishalidinesh1998.github.io/Nostra-Website/
+)
